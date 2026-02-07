@@ -1,0 +1,8 @@
+BRG001,  Roti, 40
+BRG002,  Susu, 35
+BRG003,  Sereal, 30
+BRG004,  Air Mineral, 23
+BRG005,  Wafer, 45
+BRG006,  Yoghurt, 32
+BRG007,  Teh, 42
+BRG008,  Kopi, 33
