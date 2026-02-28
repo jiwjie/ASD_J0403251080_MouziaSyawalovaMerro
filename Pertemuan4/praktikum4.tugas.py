@@ -13,10 +13,11 @@ class Node:
         self.no = no
         self.nama = nama
         self.servis = servis
-        self.next = None
+        self.next = None        # pointer untuk menunjuk ke pelanggan berikutnya
         
 class QueueBengkel:
     def __init__(self):
+        # menginisialisasi pointer front dan rear
         self.front = None
         self.rear = None
     
@@ -25,42 +26,57 @@ class QueueBengkel:
     
     def enqueue (self, no, nama, servis):
         # Tambahkan data ke antrian
-        dataBaru = Node(no, nama, servis)
+        nodeBaru = Node(no, nama, servis)
         
-        # jika data kosong, maka data baru = front = rear
+        # jika antrian kosong, maka front dan rear akan menunjuk ke node baru
         if self.is_empty():
-            self.front = dataBaru
-            self.rear = dataBaru
+            self.front = nodeBaru
+            self.rear = nodeBaru
+            print(f"Berhasil menambahkan {nama} ke antrian.")
             return
     
-        # jika data tidak kosong, maka data baru diletakkan setelah rear
-        self.rear.next = dataBaru
-        self.rear = dataBaru
+        # jika antrian tidak kosong, maka data baru diletakkan setelah rear (dibelakang antrian)
+        self.rear.next = nodeBaru
+        # memindahkan pointer rear ke node paling baru 
+        self.rear = nodeBaru
+        print(f"Berhasil menambahkan {nama} ke antrian.")
         
     # Melayani pelanggan terdepan  
     def dequeue(self):
+        
+        # jika antrian kosong, tidak ada pelanggan yang bisa dilayani
         if self.is_empty():
             print("Antrian Kosong. Tidak ada pelanggan yang bisa dilayani.")
             return None
         
-        node_dilayani = self.front
+        # menyimpan data pelanggan yang dilayani adalah pelanggan yang berada di depan 
+        pelangganDilayani = self.front
         
+        # menggeser pointer front ke node berikutnya / menghapus pelanggan paling depan dari antrian
         self.front = self.front.next
         
+        # jika setelah digeser pelanggan pertama menjadi kosong, maka antrian habis
         if self.front is None:
-            self.rear = None
-            return node_dilayani
+            self.rear = None        # rear juga menjadi kosong
+            return pelangganDilayani
         
+        print(f"Selesai melayani pelanggan no{pelangganDilayani.no}. {pelangganDilayani.nama} | Jenis servis :{pelangganDilayani.servis} ")
+    
     # Tampilkan seluruh antrian
     def tampilkan(self):
         
         print("\n=== Daftar Antrian Pelanggan Bengkel ===")
+        print(f"{'No': <2} | {'Nama': <8} | {'Servis': >5}")
+        # memulai transversal (penelusuran) dari node terdepan
         current = self.front
         no = 1
+        
+        # selama node tidak kosong, cetak antrian lalu geser ke antrian berikutnya
         while current is not None:
-            print(f"{no}. {current.nama} | {current.servis}")
+            print(f"{no : <3}| {current.nama : <8} | {current.servis : >5}")
             current = current.next
             no += 1
+        print("=============================")
             
 def main():
     q = QueueBengkel()
@@ -79,16 +95,16 @@ def main():
             nama = input("Masukkan nama pelanggan : ")
             servis = input("Jenis servis : ")
             q.enqueue(no, nama, servis)
-            print("\nPelanggan berhasil ditambahkan.")
         
         elif pilih == "2":
-            dilayani = q.dequeue()
-            print(f"Pelanggan no-{no} atas nama {nama} telah selesai dilayani.")
-                
+            q.dequeue()
+                   
         elif pilih == "3":
             q.tampilkan()
             
         elif pilih == "4":
+            print("Terimakasih telah menggunakan sistem antrian bengkel.")
+            print("=====================================================")
             break
             
         else:
