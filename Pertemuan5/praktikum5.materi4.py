@@ -15,10 +15,12 @@ def biner(n, hasil=""):
         print(hasil)
         return
     
+    # recursive case 
     # choose + explore : tambah '0'
     biner (n, hasil+"0")
     
     # choose + explore : tambah '1'
-    biner (n, hasil+"1")
-    
+    biner (n, hasil+"1")    # baris di eksekusi setelah semua cabang "0" selesai
+
+# memulai rekursi dengan panjang 3 digit
 biner(3)

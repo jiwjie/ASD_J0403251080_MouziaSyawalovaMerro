@@ -12,6 +12,7 @@
 
 def faktorial(n):
     # base case
+    # 0! didefinisikan sebagai 1, untuk mencegah fungsi memanggil diri sendiri selamanya
     if n == 0 :
         return 1
     
@@ -19,4 +20,4 @@ def faktorial(n):
     return n*faktorial(n-1)  # n-1*n-2*n-3.........*n-n
 
 print("==== Program Faktorial ====")       
-print("Hasil faktorial : ", faktorial(3))    
+print("Hasil faktorial : ", faktorial(3))    # memanggil fungsi dengan n = 3

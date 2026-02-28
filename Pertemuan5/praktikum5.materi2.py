@@ -14,14 +14,19 @@
 
 def hitung(n):
     
-    #base case:
+    #base case
+    # jika n mencapai 0, cetak "selesai" dan berhenti
     if n == 0:
         print("Selesai")
         return
     
+    # eksekusi berjalan ketika fungsi menuju base case
     print("Masuk : ", n)
-    hitung(n-1) #recursive case 
-    print("Keluar : ", n)
+    
+    #recursive case 
+    # memanggil diri sendiri 
+    hitung(n-1)     
+    print("Keluar : ", n)       #baris ini akan dijeda sampai proses diatasnya selesai
     
 print("==== Program Tracing ====")
-hitung(3)
+hitung(3)       #menghitung program dengan angka 3
