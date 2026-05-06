@@ -36,5 +36,21 @@ else:
 # Pertanyaan analisis
 '''
 1. Berapa total bobot jalur A -> B -> D?
-    > 
+    > A -> B = 4
+      B -> D = 5
+    Total = 4 + 5 = 9
+
+2. Berapa total bobot jalur A -> C -> D? 
+    > A -> C = 2
+      C -> D = 1
+      Total = 2 + 1 = 3
+      
+3. Jalur mana yang dipilih sebagai jalur terpendek? 
+    > A -> C -> D
+    
+4. Mengapa jalur terpendek tidak selalu ditentukan dari jumlah edge yang 
+paling sedikit? 
+    > Pada Weighted Graph, tiap edge memiliki nilai masing-masing. Walaupun 
+    kedua jalur memiliki jumlah edge sama-sama 2, namun akumulasi dari tiap jalur
+    itu yang membedakan dan menentukan jalur terpendek.
 '''

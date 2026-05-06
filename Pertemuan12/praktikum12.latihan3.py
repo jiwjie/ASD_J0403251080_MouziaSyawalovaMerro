@@ -54,9 +54,22 @@ for node, distance in hasil.items():
 # Pertanyaan Analisis
 '''
 1. Berapa bobot langsung dari A ke B? 
+    > 5 
+    
 2. Berapa total bobot jalur A -> C -> B? 
+    > 2
 3. Jalur mana yang menghasilkan jarak lebih kecil menuju B? 
-4. Mengapa Bellman-Ford dapat digunakan pada graph dengan bobot negatif? 
+    > A -> C -> B
+4. Mengapa Bellman-Ford dapat digunakan pada graph dengan bobot negatif?
+    > Karena Bellman-Ford terus memeriksa ulang semua jalur sebanyak V-1 kali. 
+    Jadi nanti akan ditemukan jalur yang lebih menguntungkan ketika ada bobot negatif.
+    Walaupun awalnya jalur itu lebih besar bobotnya.
+    
 5. Apa yang dimaksud dengan proses relaksasi edge? 
+    > ketika memperbaiki perkiraan jarak terpendek. Jadi ketika sudah terpilih jalur
+    namun ternyata ada jalur yang lebih pendek, maka kita akan memperbarui dengan nilai yang lebih kecil.
+
 6. Apa perbedaan utama Bellman-Ford dan Dijkstra?
+    > - Bellman-Ford bisa mendeteksi siklus negatif dan mengatasi permasalahan bobot negatif.
+    
 '''

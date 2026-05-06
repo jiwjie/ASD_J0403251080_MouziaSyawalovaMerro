@@ -57,3 +57,30 @@ hasil = dijkstra(graph, 'A')
 print("Jarak terpendek dari node A:") 
 for node, distance in hasil.items(): 
     print(node, "=", distance)
+    
+    
+
+# Pertanyaan Analisis 
+'''
+1. Berapa jarak terpendek dari A ke B?
+    > 4
+
+2. Berapa jarak terpendek dari A ke C? 
+    > 2
+
+3. Berapa jarak terpendek dari A ke D? 
+    > 3
+
+4. Mengapa jarak A ke D lebih kecil melalui C dibandingkan melalui B? 
+    > Karena jika melalui B, total bobotnya 9. Sedangkan melalui C, hanya memiliki
+    total bobot 3.
+
+5. Apa fungsi priority_queue dalam algoritma Dijkstra? 
+    > Untuk memilih node yang lebih efisien. Jadi jalur yang terpilih akan berada pada jalur terpendek.
+    Sehingga bisa mengurangi jumlah komputasi yang tidak perlu.
+
+6. Mengapa Dijkstra tidak cocok untuk graph dengan bobot negatif?
+    > Dijkstra bekerja dengan prinsip: sekali ketemu jalan terpendek, jalan itu tidak akan berubah. 
+    Tapi kalau ada bobot negatif, prinsip ini rusak. Karena angka negatif bisa membuat total jarak 
+    yang tadinya besar tiba-tiba jadi sangat kecil, dan Dijkstra terlanjur melewatkan jalur tersebut. 
+'''
